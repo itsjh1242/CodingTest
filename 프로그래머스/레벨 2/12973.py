@@ -18,21 +18,28 @@ b aa baa → bb aa → aa →
 '''
 
 '''
-1. 4개의 테스트 케이스 시간초과
-'''
+1. 문자열에서 이어진 알파벳 짝이 있으면 제거한 뒤 앞뒤로 문자열을 이어붙임.
+2. 1번 과정을 한 후에 해당 문자열에 대해서 다시 실행해야 함.
 
+solution
+stack을 사용하여 비교할 문자열을 저장
+'''
+def isEmpty(stack):
+    return True if not stack else False
+def isEqual(stack, cv):
+    return True if stack[-1] == cv else False
+def result(stack):
+    return 0 if stack else 1
 
 def solution(s):
-    arr = [_ for _ in s]
-    increaseNum = 0
-    flag = len(s) - 1
-    while True:
-        if increaseNum == flag: return print("0")
-        if not arr: return print("1")
-        if arr[increaseNum] == arr[increaseNum + 1]:
-            arr = arr[:increaseNum] + arr[increaseNum + 2:]
-            increaseNum = 0
-        increaseNum += 1
-        
+    stack = []
+    for _ in s:
+        if isEmpty(stack):
+            stack.append(_)
+        else:
+            stack.pop() if isEqual(stack, _) else stack.append(_)
+    return result(stack)
 
-solution("baabaa")
+s = "baabaa"
+solution(s)
+
