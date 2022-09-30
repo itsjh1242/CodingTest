@@ -14,12 +14,11 @@ s	return
 따라서 "TrY HeLlO WoRlD" 를 리턴합니다.
 '''
 
-s = 'try hello world'
-s = s.lower()
-b = ""
-a = s.split()
-for _ in a:
-    for i, __ in enumerate(_):
-        b += __.upper() if i % 2 == 0 else __
-    b += " "
-print(b)
+# s = s.lower()
+#     b = ''
+#     a = s.split()
+#     for _ in a:
+#         for i, __ in enumerate(_):
+#             b += __.upper() if i % 2 == 0 else __
+#         b += " "
+#     return b.rstrip()
